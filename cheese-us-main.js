@@ -243,7 +243,7 @@ function searchCheese() {
         alert("Invalid input");
         return;
     }
-    const searchString = prompt("Enter the search string:");
+    const searchString = prompt("Enter Search:");
     if (searchString === null) {
         // User clicked cancel, do nothing.
         return;
