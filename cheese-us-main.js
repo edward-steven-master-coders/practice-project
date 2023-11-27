@@ -239,10 +239,21 @@ function searchCheese() {
         // User clicked cancel, do nothing.
         return;
     }
-    if (searchBy.toLowerCase() !== "cheese name" && searchBy.toLowerCase() !== "country of origin") {
+    if (searchBy.toLowerCase() !== "cheese name" && searchBy.toLowerCase() !== "country of origin" && searchBy.toLowerCase() !== "country" && searchBy.toLowerCase() !== "cheese") {
         alert("Invalid input");
         return;
     }
+    if (searchBy.toLowerCase() === "cheese name" || searchBy.toLowerCase() === "cheese"){
+        const byCheeseName = prompt("Enter Cheese Name");
+        for (let i = 0; i < cheeses.length; i++) {
+            if (byCheeseName === cheeses[i].name){
+                alert(`${cheeses[i].name} \n ${cheeses[i].type} \n ${cheeses[i].country_of_origin}`);
+            }
+        }
+    } else {
+        prompt("Enter Country of Origin");
+    }
+
     const searchString = prompt("Enter Search:");
     if (searchString === null) {
         // User clicked cancel, do nothing.
