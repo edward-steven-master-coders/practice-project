@@ -229,4 +229,50 @@ const cheeses = [
 ];
 
 
-alert("Can you cheese this?");
+alert("Welcome to Cheese Us!");
+// Define an array of cheese objects with name and country properties.
+
+// Function to prompt the user and handle the search.
+function searchCheese() {
+    const searchBy = prompt("Search by cheese name or country of origin?");
+    if (searchBy === null) {
+        // User clicked cancel, do nothing.
+        return;
+    }
+    if (searchBy.toLowerCase() !== "cheese name" && searchBy.toLowerCase() !== "country of origin") {
+        alert("Invalid input");
+        return;
+    }
+    const searchString = prompt("Enter the search string:");
+    if (searchString === null) {
+        // User clicked cancel, do nothing.
+        return;
+    }
+    // Perform the search based on user input.
+    const results = cheeses.filter(cheese => {
+        if (searchBy.toLowerCase() === "cheese name") {
+            return cheese.name.toLowerCase().startsWith(searchString.toLowerCase());
+        } else {
+            return cheese.country.toLowerCase().startsWith(searchString.toLowerCase());
+        }
+    });
+    // Display the results to the user.
+    if (results.length === 0) {
+        alert("No matching cheeses found.");
+    } else {
+        alert("Matching cheeses:\n" + results.map(cheese => `${cheese.name} (${cheese.country})`).join("\n"));
+    }
+}
+// Attach the search function to the button click event.
+const searchButton = document.getElementById("searchButton");
+searchButton.addEventListener("click", searchCheese);
+
+
+
+
+
+
+
+
+
+
